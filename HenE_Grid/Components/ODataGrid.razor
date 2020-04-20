@@ -1,0 +1,79 @@
+﻿@typeparam TItem
+
+    <div class="col-lg-12 control-section">
+        <div class="content-wrapper">
+            <SfGrid @ref="DefaultGrid" Height="100%" Width="100%" TValue="@TItem" ShowColumnMenu="true" AllowGrouping="true" AllowPdfExport="true" AllowExcelExport="true" AllowPaging="true" AllowFiltering="true">
+                <GridPageSettings PageSizes="true" ></GridPageSettings>
+                <GridEditSettings AllowAdding="true" AllowDeleting="true" AllowEditing="true" Mode="EditMode.Dialog"></GridEditSettings>
+                <SfDataManager Adaptor="Adaptors.ODataAdaptor" Url="@Url"></SfDataManager>
+                <GridColumns>
+                    @foreach (dynamic prop in tp.GetProperties())
+                    {
+                        <label>
+                            <GridColumn Field="@prop.Name"></GridColumn>
+                        </label>
+                    }
+                </GridColumns>
+            </SfGrid>
+        </div>
+        <div class="mt-2">
+            <label>
+                <SfProgressButton OnClick="ExcelExport" Content="Excel Export" EnableProgress="true" Duration=2500 CssClass="e-hide-spinner e-progress-top"
+                                  IconCss="e-btn-sb-icons e-download-icon"></SfProgressButton>
+            </label>
+            <label>
+                <SfProgressButton OnClick="PdfExport" Content="Pdf Export" EnableProgress="true" Duration=2500 CssClass="e-hide-spinner e-progress-top"
+                                  IconCss="e-btn-sb-icons e-download-icon"></SfProgressButton>
+            </label>
+        </div>
+        </div>
+
+        @code{
+            [Parameter]
+            public string Url { get; set; }
+
+            private Type tp ;
+
+            private SfGrid<TItem> DefaultGrid;
+            public int GridHeight;
+
+        protected override void OnInitialized()
+        {
+            tp = typeof(TItem);
+        }
+
+        public void ExcelExport()
+            {
+                ExcelExportProperties ExcelProperties = new ExcelExportProperties();
+                ExcelTheme Theme = new ExcelTheme();
+
+                ExcelStyle ThemeStyle = new ExcelStyle()
+                {
+                    FontName = "Segoe UI",
+                    FontColor = "#666666",
+                    FontSize = 12
+                };
+
+                Theme.Header = ThemeStyle;
+                Theme.Record = ThemeStyle;
+                Theme.Caption = ThemeStyle;
+                ExcelProperties.Theme = Theme;
+                ExcelProperties.FileName = $"Excel file_{DateTime.Now}.xlsx";
+                this.DefaultGrid.ExcelExport(ExcelProperties);
+            }
+            public void PdfExport()
+            {
+                PdfExportProperties ExportProperties = new PdfExportProperties();
+                ExportProperties.FileName = $"Pdf file_{DateTime.Now}.pdf";
+                this.DefaultGrid.PdfExport(ExportProperties);
+            }
+
+            public void Load(object args)
+            {
+                var RowHeight = 37; //height of the each row
+                Int32.TryParse(this.DefaultGrid.Height, out GridHeight); //datagrid height
+                var PageSize = (this.DefaultGrid.PageSettings as GridPageSettings).PageSize; //initial page size
+                decimal PageResize = ((GridHeight) - (PageSize * RowHeight)) / RowHeight; //new page size is obtained here
+                (this.DefaultGrid.PageSettings as GridPageSettings).PageSize = PageSize + (int)Math.Round(PageResize);
+            }
+        }

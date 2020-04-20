@@ -1,0 +1,15 @@
+﻿@page "/"
+
+    <div>
+        <ODataGrid TItem="Order" Url="https://services.odata.org/V3/Northwind/Northwind.svc/Orders"></ODataGrid>
+    </div>
+    <ODataGrid TItem="Customer" Url="https://services.odata.org/V3/Northwind/Northwind.svc/Customers"></ODataGrid>
+
+
+@code{
+    String url;
+    protected override void OnInitialized()
+    {
+        url = "https://services.odata.org/V3/Northwind/Northwind.svc//$metadata#Orders";
+    }
+}
