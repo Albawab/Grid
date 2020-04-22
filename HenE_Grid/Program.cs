@@ -18,6 +18,7 @@ namespace HenE_Grid
         /// <param name="args">ar.</param>
         public static void Main(string[] args)
         {
+
             CreateHostBuilder(args).Build().Run();
         }
 

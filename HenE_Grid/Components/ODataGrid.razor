@@ -67,13 +67,4 @@
                 ExportProperties.FileName = $"Pdf file_{DateTime.Now}.pdf";
                 this.DefaultGrid.PdfExport(ExportProperties);
             }
-
-            public void Load(object args)
-            {
-                var RowHeight = 37; //height of the each row
-                Int32.TryParse(this.DefaultGrid.Height, out GridHeight); //datagrid height
-                var PageSize = (this.DefaultGrid.PageSettings as GridPageSettings).PageSize; //initial page size
-                decimal PageResize = ((GridHeight) - (PageSize * RowHeight)) / RowHeight; //new page size is obtained here
-                (this.DefaultGrid.PageSettings as GridPageSettings).PageSize = PageSize + (int)Math.Round(PageResize);
-            }
         }

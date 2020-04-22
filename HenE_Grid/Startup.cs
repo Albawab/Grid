@@ -10,6 +10,7 @@ namespace HenE_Grid
     using System.Linq;
     using System.Net.Http;
     using System.Threading.Tasks;
+    using Microsoft.AspNet.OData.Extensions;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Components;
     using Microsoft.AspNetCore.Hosting;
@@ -17,6 +18,7 @@ namespace HenE_Grid
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
+    using Microsoft.OData.Edm;
     using Syncfusion.Blazor;
 
     /// <summary>
@@ -47,6 +49,12 @@ namespace HenE_Grid
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSyncfusionBlazor();
+
+            //add Odata
+            services.AddControllers(option => option.EnableEndpointRouting = false);
+            services.AddOData();
+
+            //
             services.AddSingleton<HttpClient>();
             services.AddLocalization(options => options.ResourcesPath = "Resources");
             var supportedCultures = new List<CultureInfo> { new CultureInfo("nl"), new CultureInfo("ml") };
@@ -88,5 +96,7 @@ namespace HenE_Grid
                 endpoints.MapFallbackToPage("/_Host");
             });
         }
+
+
     }
 }
