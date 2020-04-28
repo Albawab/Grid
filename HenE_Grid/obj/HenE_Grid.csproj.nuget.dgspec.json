@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Abdul\\Desktop\\Werk\\Grid\\HenE_Grid\\HenE_Grid.csproj": {}
+    "C:\\Users\\Abdul\\Desktop\\06 Grid\\HenE_Grid\\HenE_Grid.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Abdul\\Desktop\\Werk\\Grid\\HenE_Grid\\HenE_Grid.csproj": {
+    "C:\\Users\\Abdul\\Desktop\\06 Grid\\HenE_Grid\\HenE_Grid.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Abdul\\Desktop\\Werk\\Grid\\HenE_Grid\\HenE_Grid.csproj",
+        "projectUniqueName": "C:\\Users\\Abdul\\Desktop\\06 Grid\\HenE_Grid\\HenE_Grid.csproj",
         "projectName": "HenE_Grid",
-        "projectPath": "C:\\Users\\Abdul\\Desktop\\Werk\\Grid\\HenE_Grid\\HenE_Grid.csproj",
+        "projectPath": "C:\\Users\\Abdul\\Desktop\\06 Grid\\HenE_Grid\\HenE_Grid.csproj",
         "packagesPath": "C:\\Users\\Abdul\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Abdul\\Desktop\\Werk\\Grid\\HenE_Grid\\obj\\",
+        "outputPath": "C:\\Users\\Abdul\\Desktop\\06 Grid\\HenE_Grid\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -41,21 +41,27 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
-            "Microsoft.Extensions.ApiDescription.Client": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
+            "Microsoft.AspNetCore.Blazor.HttpClient": {
               "target": "Package",
-              "version": "[5.0.0-preview.2.20167.3, )"
+              "version": "[3.2.0-preview3.20168.3, )"
             },
-            "Microsoft.OData.Client": {
+            "Microsoft.Data.Edm": {
               "target": "Package",
-              "version": "[7.6.4, )"
+              "version": "[5.8.4, )"
             },
-            "Newtonsoft.Json": {
+            "Microsoft.Data.OData": {
               "target": "Package",
-              "version": "[12.0.3, )"
+              "version": "[5.8.4, )"
             },
-            "Simple.OData.V4.Client": {
+            "Microsoft.Data.Services.Client": {
+              "target": "Package",
+              "version": "[5.8.4, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "Simple.OData.Client": {
               "target": "Package",
               "version": "[5.12.0, )"
             },
@@ -67,11 +73,15 @@
             },
             "Syncfusion.Blazor": {
               "target": "Package",
-              "version": "[18.1.0.45, )"
+              "version": "[18.1.0.44, )"
             },
             "System.ComponentModel.Annotations": {
               "target": "Package",
-              "version": "[5.0.0-preview.2.20160.6, )"
+              "version": "[4.7.0, )"
+            },
+            "System.Spatial": {
+              "target": "Package",
+              "version": "[5.8.4, )"
             },
             "System.ValueTuple": {
               "target": "Package",

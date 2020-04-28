@@ -1,15 +1,36 @@
 ﻿@page "/"
+@page "/{Id:int}"
+@inherits HenE_Grid.Pages.Component
+@inject NavigationManager NavigationManager
+<div>
+    <ODataGrid TItem="Order" Url="http://services.odata.org/V4/Northwind/Northwind.svc/Orders/"></ODataGrid>
+</div>
 
-    <div>
-        <ODataGrid TItem="Order" Url="https://services.odata.org/V3/Northwind/Northwind.svc/Orders"></ODataGrid>
-    </div>
-    <ODataGrid TItem="Customer" Url="https://services.odata.org/V3/Northwind/Northwind.svc/Customers"></ODataGrid>
+
+<div>
+    <ODataGrid TItem="Vwaangepastewoningen" Url="https://overzichten.dev.hene.nl/Vwaangepastewoningen"></ODataGrid>
+</div>
 
 
-@code{
-    String url;
-    protected override void OnInitialized()
+@code
+{
+    [Parameter]
+    public int Id { get; set; }
+    private string Url = string.Empty;
+
+    protected override void OnParametersSet()
     {
-        url = "https://services.odata.org/V3/Northwind/Northwind.svc//$metadata#Orders";
+        switch (Id)
+        {
+            case 1:
+                NavigationManager.NavigateTo("vwaangepastewoningen");                
+                break;
+            case 2:
+                NavigationManager.NavigateTo("order");                
+                break;
+            default:
+                break;
+        }
+        StateHasChanged();
     }
 }

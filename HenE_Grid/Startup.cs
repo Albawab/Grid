@@ -4,21 +4,16 @@
 
 namespace HenE_Grid
 {
-    using System;
     using System.Collections.Generic;
     using System.Globalization;
-    using System.Linq;
     using System.Net.Http;
-    using System.Threading.Tasks;
-    using Microsoft.AspNet.OData.Extensions;
+    using HenE_Grid.Interface;
+    using HenE_Grid.Settings;
     using Microsoft.AspNetCore.Builder;
-    using Microsoft.AspNetCore.Components;
     using Microsoft.AspNetCore.Hosting;
-    using Microsoft.AspNetCore.HttpsPolicy;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
-    using Microsoft.OData.Edm;
     using Syncfusion.Blazor;
 
     /// <summary>
@@ -49,15 +44,10 @@ namespace HenE_Grid
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSyncfusionBlazor();
-
-            //add Odata
-            services.AddControllers(option => option.EnableEndpointRouting = false);
-            services.AddOData();
-
-            //
             services.AddSingleton<HttpClient>();
+            services.AddSingleton<IHaveSettings>(new InstellingenOdata(this.Configuration));
             services.AddLocalization(options => options.ResourcesPath = "Resources");
-            var supportedCultures = new List<CultureInfo> { new CultureInfo("nl"), new CultureInfo("ml") };
+            var supportedCultures = new List<CultureInfo> { new CultureInfo("nl"), new CultureInfo("nl") };
             services.Configure<RequestLocalizationOptions>(options =>
             {
                 options.DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture("nl");
@@ -96,7 +86,5 @@ namespace HenE_Grid
                 endpoints.MapFallbackToPage("/_Host");
             });
         }
-
-
     }
 }

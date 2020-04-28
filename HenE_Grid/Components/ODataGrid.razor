@@ -5,7 +5,7 @@
             <SfGrid @ref="DefaultGrid" Height="100%" Width="100%" TValue="@TItem" ShowColumnMenu="true" AllowGrouping="true" AllowPdfExport="true" AllowExcelExport="true" AllowPaging="true" AllowFiltering="true">
                 <GridPageSettings PageSizes="true" ></GridPageSettings>
                 <GridEditSettings AllowAdding="true" AllowDeleting="true" AllowEditing="true" Mode="EditMode.Dialog"></GridEditSettings>
-                <SfDataManager Adaptor="Adaptors.ODataAdaptor" Url="@Url"></SfDataManager>
+                <SfDataManager Adaptor="Adaptors.ODataV4Adaptor" Url="@Url" ></SfDataManager>
                 <GridColumns>
                     @foreach (dynamic prop in tp.GetProperties())
                     {
@@ -37,12 +37,15 @@
             private SfGrid<TItem> DefaultGrid;
             public int GridHeight;
 
-        protected override void OnInitialized()
-        {
-            tp = typeof(TItem);
-        }
+            protected override void OnInitialized()
+            {
+                tp = typeof(TItem);
+            }
 
-        public void ExcelExport()
+
+
+
+            public void ExcelExport()
             {
                 ExcelExportProperties ExcelProperties = new ExcelExportProperties();
                 ExcelTheme Theme = new ExcelTheme();
@@ -67,4 +70,13 @@
                 ExportProperties.FileName = $"Pdf file_{DateTime.Now}.pdf";
                 this.DefaultGrid.PdfExport(ExportProperties);
             }
+
+            /*            public void Load(object args)
+                        {
+                            var RowHeight = 37; //height of the each row
+                            Int32.TryParse(this.DefaultGrid.Height, out GridHeight); //datagrid height
+                            var PageSize = (this.DefaultGrid.PageSettings as GridPageSettings).PageSize; //initial page size
+                            decimal PageResize = ((GridHeight) - (PageSize * RowHeight)) / RowHeight; //new page size is obtained here
+                            (this.DefaultGrid.PageSettings as GridPageSettings).PageSize = PageSize + (int)Math.Round(PageResize);
+                        }*/
         }

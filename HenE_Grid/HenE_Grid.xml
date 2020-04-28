@@ -1,0 +1,169 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HenE_Grid</name>
+    </assembly>
+    <members>
+        <member name="T:HenE_Grid.Data.Order">
+            <summary>
+            Een klas van de order waarin de properties staan.
+            </summary>
+        </member>
+        <member name="P:HenE_Grid.Data.Order.OrderID">
+            <summary>
+            Gets or sets de id van de order.
+            </summary>
+        </member>
+        <member name="T:HenE_Grid.Data.Vwaangepastewoningen">
+            <summary>
+            Vw aangepastewoningen waarin de properties van de woningen staatn.
+            </summary>
+        </member>
+        <member name="P:HenE_Grid.Data.Vwaangepastewoningen.Vwaangepastewoningenid">
+            <summary>
+            Gets or sets de id van een woning.
+            </summary>
+        </member>
+        <member name="P:HenE_Grid.Data.Vwaangepastewoningen.Aanvraagnummer">
+            <summary>
+            Gets or sets de nummer van de aanvraag.
+            </summary>
+        </member>
+        <member name="P:HenE_Grid.Data.Vwaangepastewoningen.Aanvraagdatum">
+            <summary>
+            Gets or sets de datum van de aanvraag.
+            </summary>
+        </member>
+        <member name="P:HenE_Grid.Data.Vwaangepastewoningen.Typeadres">
+            <summary>
+            Gets or sets de type van het adres.
+            </summary>
+        </member>
+        <member name="P:HenE_Grid.Data.Vwaangepastewoningen.Straat">
+            <summary>
+            Gets or sets de straat van de woning.
+            </summary>
+        </member>
+        <member name="P:HenE_Grid.Data.Vwaangepastewoningen.Postcode1">
+            <summary>
+            Gets or sets het postcode van de woning.
+            </summary>
+        </member>
+        <member name="P:HenE_Grid.Data.Vwaangepastewoningen.Plaats">
+            <summary>
+            Gets or sets de plaats van de woning.
+            </summary>
+        </member>
+        <member name="P:HenE_Grid.Data.Vwaangepastewoningen.Geraanpassingen">
+            <summary>
+            Gets or sets de aanpassingen van de woning.
+            </summary>
+        </member>
+        <member name="P:HenE_Grid.Data.Vwaangepastewoningen.Product">
+            <summary>
+            Gets or sets de product.
+            </summary>
+        </member>
+        <member name="P:HenE_Grid.Data.Vwaangepastewoningen.Bsn">
+            <summary>
+            Gets or sets de psn nummer.
+            </summary>
+        </member>
+        <member name="P:HenE_Grid.Data.Vwaangepastewoningen.Client">
+            <summary>
+            Gets or sets de cliënt van de woning.
+            </summary>
+        </member>
+        <member name="T:HenE_Grid.Interface.IHaveSettings">
+            <summary>
+            Interface waarin de instellingen van de applicatie staan.
+            </summary>
+        </member>
+        <member name="M:HenE_Grid.Interface.IHaveSettings.GetInstellingen">
+            <summary>
+            Gets de instellingen van de applicatie.
+            </summary>
+            <returns>De instellingen van de applicatie.</returns>
+        </member>
+        <member name="T:HenE_Grid.Program">
+            <summary>
+            The program class.
+            </summary>
+        </member>
+        <member name="M:HenE_Grid.Program.Main(System.String[])">
+            <summary>
+            Main functie.
+            </summary>
+            <param name="args">ar.</param>
+        </member>
+        <member name="M:HenE_Grid.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            CreateHostBuilder.
+            </summary>
+            <param name="args">ar.</param>
+            <returns>Builder.</returns>
+        </member>
+        <member name="T:HenE_Grid.Settings.Instellingen">
+            <summary>
+            Hier in staat de method en properties die we het nodig hebben voor de applicatie.
+            </summary>
+        </member>
+        <member name="P:HenE_Grid.Settings.Instellingen.OdatabaseUrl">
+            <summary>
+            Gets or Sets the link of the odatabase.
+            </summary>
+        </member>
+        <member name="T:HenE_Grid.Settings.InstellingenOdata">
+            <summary>
+            Klas Gets de instellingen van de odata.
+            </summary>
+        </member>
+        <member name="M:HenE_Grid.Settings.InstellingenOdata.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:HenE_Grid.Settings.InstellingenOdata"/> class.
+            </summary>
+            <param name="configuration">configuration.</param>
+        </member>
+        <member name="P:HenE_Grid.Settings.InstellingenOdata.Configuration">
+            <summary>
+            Gets de configuratie.
+            </summary>
+        </member>
+        <member name="M:HenE_Grid.Settings.InstellingenOdata.GetInstellingen">
+            <summary>
+            Geef url van de odata terug.
+            </summary>
+            <returns>De instellingen van de applicatie.</returns>
+        </member>
+        <member name="T:HenE_Grid.Startup">
+            <summary>
+            Startup class.
+            </summary>
+        </member>
+        <member name="M:HenE_Grid.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:HenE_Grid.Startup"/> class.
+            </summary>
+            <param name="configuration">configuration.</param>
+        </member>
+        <member name="P:HenE_Grid.Startup.Configuration">
+            <summary>
+            Gets Configuration.
+            </summary>
+        </member>
+        <member name="M:HenE_Grid.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940.
+            </summary>
+            <param name="services">services.</param>
+        </member>
+        <member name="M:HenE_Grid.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+             This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app">app.</param>
+            <param name="env">env.</param>
+        </member>
+    </members>
+</doc>

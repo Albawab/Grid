@@ -2,33 +2,27 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Users\Abdul\Desktop\06 Grid\HenE_Grid\HenE_Grid.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="OpenAPIs\**" />
-    <Content Remove="OpenAPIs\**" />
-    <EmbeddedResource Remove="OpenAPIs\**" />
-    <None Remove="OpenAPIs\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.OData" Version="7.4.0" />
-    <PackageReference Include="Microsoft.Extensions.ApiDescription.Client" Version="5.0.0-preview.2.20167.3">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="NSwag.ApiDescription.Client" Version="13.4.2">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.Blazor.HttpClient" Version="3.2.0-preview3.20168.3" />
+    <PackageReference Include="Microsoft.Data.Edm" Version="5.8.4" />
+    <PackageReference Include="Microsoft.Data.OData" Version="5.8.4" />
+    <PackageReference Include="Microsoft.Data.Services.Client" Version="5.8.4" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
     <PackageReference Include="Simple.OData.Client" Version="5.12.0" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.164">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Syncfusion.Blazor" Version="18.1.0.45" />
-    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0-preview.2.20160.6" />
+    <PackageReference Include="Syncfusion.Blazor" Version="18.1.0.44" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="4.7.0" />
+    <PackageReference Include="System.Spatial" Version="5.8.4" />
     <PackageReference Include="System.ValueTuple" Version="4.5.0" />
   </ItemGroup>
 
@@ -37,17 +31,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="ClassGenerator.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>ClassGenerator.tt</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="ClassGenerator.tt">
+    <None Update="t4\PagesGenerator.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ClassGenerator.cs</LastGenOutput>
+      <LastGenOutput>PagesGenerator.razor</LastGenOutput>
     </None>
   </ItemGroup>
 
@@ -57,6 +43,14 @@
 
   <ItemGroup>
     <Folder Include="Connected Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="t4\PagesGenerator.razor">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PagesGenerator.tt</DependentUpon>
+    </Content>
   </ItemGroup>
 
 </Project>

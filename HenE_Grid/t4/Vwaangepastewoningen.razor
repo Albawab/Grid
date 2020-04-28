@@ -1,0 +1,14 @@
+
+@page "/vwaangepastewoningen" 
+@inject IHaveSettings Settings
+<div>
+    <ODataGrid TItem="HenE_Grid.Data.Vwaangepastewoningen" Url="@Url"></ODataGrid>
+</div>
+
+@code{
+    protected string Url
+    {
+        get{ return Settings.GetInstellingen().OdatabaseUrl+"/"+ "Vwaangepastewoningen" ;  }
+    }
+}
+
