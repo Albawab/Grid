@@ -6,7 +6,7 @@
 <#@ output extension=".razor" #>
 
 <# 
-     var classes = File.ReadLines(@"C:\Users\Abdul\Desktop\06 Grid\HenE_Grid\t4\TextFileOfClasses.txt");
+     var classes = File.ReadLines(@"C:\Users\Abdul\Desktop\Werk\Grid\HenE_Grid\t4\TextFileOfClasses.txt");
    List<string> Items= new List<string>();
 
    //Items.Add("Vwaangepastewoningen" );
@@ -18,7 +18,7 @@
 @page "/<#= LowerInitial(klas) #>" 
 @inject IHaveSettings Settings
 <div>
-    <ODataGrid TItem="HenE_Grid.Data.<#= klas #>" Url="@Url"></ODataGrid>
+    <ODataGrid TItem="<#= klas #>" Url="@Url"></ODataGrid>
 </div>
 
 @code{
@@ -29,7 +29,7 @@
 }
 
 <#
-        SaveOutput(klas + ".razor");
+        SaveOutput(klas+"Component" + ".razor");
    }
  #>
 

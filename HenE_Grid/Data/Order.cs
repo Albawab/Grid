@@ -4,6 +4,8 @@
 
 namespace HenE_Grid.Data
 {
+    using System.ComponentModel;
+
     /// <summary>
     /// Een klas van de order waarin de properties staan.
     /// </summary>
@@ -12,6 +14,7 @@ namespace HenE_Grid.Data
         /// <summary>
         /// Gets or sets de id van de order.
         /// </summary>
+        [Description("ID")]
         public int OrderID { get; set; }
     }
 }

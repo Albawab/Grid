@@ -47,7 +47,7 @@ namespace HenE_Grid
             services.AddSingleton<HttpClient>();
             services.AddSingleton<IHaveSettings>(new InstellingenOdata(this.Configuration));
             services.AddLocalization(options => options.ResourcesPath = "Resources");
-            var supportedCultures = new List<CultureInfo> { new CultureInfo("nl"), new CultureInfo("nl") };
+            var supportedCultures = new List<CultureInfo> { new CultureInfo("nl") };
             services.Configure<RequestLocalizationOptions>(options =>
             {
                 options.DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture("nl");

@@ -57,7 +57,6 @@ namespace HenE_Grid.Data
         /// Gets or sets de product.
         /// </summary>
         public string Product { get; set; }
-
         /// <summary>
         /// Gets or sets de psn nummer.
         /// </summary>

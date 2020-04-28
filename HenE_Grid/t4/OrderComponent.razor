@@ -1,0 +1,13 @@
+@page "/order" 
+@inject IHaveSettings Settings
+<div>
+    <ODataGrid TItem="Order" Url="@Url"></ODataGrid>
+</div>
+
+@code{
+    protected string Url
+    {
+        get{ return Settings.GetInstellingen().OdatabaseUrl+"/"+ "Order" ;  }
+    }
+}
+

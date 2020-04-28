@@ -1,0 +1,7 @@
+yes, we can also able to replicate your issue.
+
+we suspect that the ODataV4Adaptor  has some limitations.
+
+Hence our Technical team needs some time to validate this. So I will create a support incident to follow this
+
+our technical team will respond to you within 24 hours.

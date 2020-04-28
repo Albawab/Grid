@@ -8072,11 +8072,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Abdul\\Desktop\\06 Grid\\HenE_Grid\\HenE_Grid.csproj",
+      "projectUniqueName": "C:\\Users\\Abdul\\Desktop\\Werk\\Grid\\HenE_Grid\\HenE_Grid.csproj",
       "projectName": "HenE_Grid",
-      "projectPath": "C:\\Users\\Abdul\\Desktop\\06 Grid\\HenE_Grid\\HenE_Grid.csproj",
+      "projectPath": "C:\\Users\\Abdul\\Desktop\\Werk\\Grid\\HenE_Grid\\HenE_Grid.csproj",
       "packagesPath": "C:\\Users\\Abdul\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Abdul\\Desktop\\06 Grid\\HenE_Grid\\obj\\",
+      "outputPath": "C:\\Users\\Abdul\\Desktop\\Werk\\Grid\\HenE_Grid\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
